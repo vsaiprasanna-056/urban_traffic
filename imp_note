@@ -1,0 +1,101 @@
+| Metric                   |                       Result |
+| ------------------------ | ---------------------------: |
+| Total cleaned trips      |               **46,935,841** |
+| Peak traffic hour        |                     **6 PM** |
+| Trips at peak hour       |                **2,969,291** |
+| Busiest day              |                   **Friday** |
+| Weekday trips            |                   **71.12%** |
+| Weekend trips            |                   **28.88%** |
+| Highest average duration |   **March 2016 – 15.81 min** |
+| Lowest average duration  | **January 2015 – 13.32 min** |
+
+
+
+Results we have now
+
+Uber Jan–Feb demand
+
+Total trips: 4,130,230
+Total active vehicles: 462,832
+Peak demand date: February 14, 2015
+Peak trips on one day: 45,858
+
+FHV services
+
+Total trips: 3,961,987
+Total vehicles: 1,039,319
+Top FHV base: BROAD DYCKMAN C/S INC
+Highest trips: 999
+
+
+“I used Logistic Regression for classification, to predict whether a time slot has high congestion or not.
+ I used Linear Regression for regression,
+ to predict the actual travel time as a continuous numerical value.”
+
+
+ Hour + Trip Distance
+        ↓
+Linear Regression
+        ↓
+Predicted Travel Time
+
+
+
+Final Findings
+Peak taxi demand: 6 PM, with about 2.97 million trips.
+Busiest day: Friday.
+Lowest average taxi speed: around 12 PM, about 10.43 mph.
+Highest delay ratio: 9 AM, with a ratio of 1.50, meaning travel took about 50% longer than the reference travel time.
+Peak accident hour: 7 AM, with about 587,472 accident records.
+Highest accident state: California in the accident dataset.
+Junctions: accident records at junctions had a higher average severity than records without junctions.
+Machine Learning: Linear Regression achieved approximately R² = 0.64, providing a useful baseline for travel-time prediction.
+Logistic Regression: achieved 100% accuracy on its small test split, so this should be presented only as a baseline result, not as proof of general performance.
+Recommendations
+Manage morning traffic: Give special attention to the 8–10 AM period because the delay ratio is high.
+Monitor midday congestion: The lowest average speed occurs around 12 PM, so congestion management should also consider midday traffic.
+Improve peak-hour traffic management: The evening period has very high taxi demand, especially around 6 PM.
+Focus on accident-prone periods: Traffic authorities can pay extra attention to the morning accident peak around 7 AM.
+Improve junction management: Since junction-related accidents show higher average severity, junction safety and traffic control can be reviewed.
+Use predictive models: The models can serve as a starting point for a future traffic congestion alert system.
+
+
+
+┌────────────────────────────────────┐
+│       LINEAR REGRESSION RESULTS    │
+├────────────────────────────────────┤
+│ MAE       : 4.10 minutes           │
+│ R² Score  : 0.64                   │
+├────────────────────────────────────┤
+│ Purpose: Predict travel time       │
+│                                    │
+│ Interpretation:                   │
+│ Average prediction error ≈ 4.1 min │
+│ Model explains ≈ 64% variation     │
+└────────────────────────────────────┘
+
+
+┌────────────────────────────────────┐
+│      LOGISTIC REGRESSION RESULTS   │
+├────────────────────────────────────┤
+│ Accuracy  : 71.67%                 │
+│ High Congestion Recall : 74%       │
+│                                    │
+│ Confusion Matrix:                  │
+│                                    │
+│          Pred 0   Pred 1           │
+│ Actual 0   203      90             │
+│ Actual 1    76     217             │
+├────────────────────────────────────┤
+│ 0 = Normal congestion              │
+│ 1 = High congestion                │
+└────────────────────────────────────┘
+
+Correct predictions = 203 + 217 = 420
+Total predictions   = 586
+
+
+| Version                       | Highest delay ratio |     Hour |
+| ----------------------------- | ------------------: | -------: |
+| Old calculation               |                1.50 |     9 AM |
+| **New corrected calculation** |            **1.42** | **9 AM** |
